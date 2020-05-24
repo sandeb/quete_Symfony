@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class DefaultController extends AbstractController
 {
     /**
-     * @Route("/wild", name="app_index")
+     * @Route("/", name="app_index")
      */
 
     public function index() :Response
@@ -18,7 +18,7 @@ class DefaultController extends AbstractController
         //'<html><body>Wild Series Index</body></html>'
         //);
         return $this->render('/index.html.twig', [
-            'website' => ' GO To Navbar !',
+            'website' => ' Fu#k is the new home',
         ]);
     }
 }

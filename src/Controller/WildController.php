@@ -2,23 +2,33 @@
 
 namespace App\Controller;
 
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class WildController extends AbstractController
 {
     /**
-     * @Route("/", name="base")
+     * @Route("/wild", name="wild_index")
+     * @return Response A response instance
      */
-
-    public function index() :Response
+    public function index(): Response
     {
-        //return new Response(
-        //'<html><body>Wild Series Index</body></html>'
-        //);
-        return $this->render('base.html.twig', [
-            'website' => 'Fu#k is the new home ',
+        $programs = $this->getDoctrine()
+            ->getRepository(Program::class)
+            ->findAll();
+
+        if (!$programs) {
+            throw $this->createNotFoundException(
+                'No program found in program\'s table.'
+            );
+        }
+
+        return $this->render(
+            'wild/index.html.twig', [
+                'programs' => $programs
         ]);
     }
 
