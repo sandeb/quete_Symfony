@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class WildController extends AbstractController
 {
     /**
-     * @Route("/wild", name="wild_index")
+     * @Route("/", name="base")
     */
 
     public function index() :Response
@@ -18,8 +18,8 @@ class WildController extends AbstractController
         //return new Response(
         //'<html><body>Wild Series Index</body></html>'
         //);
-        return $this->render('wild/index.html.twig', [
-            'website' => 'Wild Séries',
+        return $this->render('base.html.twig', [
+            'website' => 'Fu#k is the new home ',
         ]);
     }
 }
