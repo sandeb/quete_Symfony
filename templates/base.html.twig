@@ -17,10 +17,20 @@
             {% include 'wild/navbar.html.twig' %}
          </header>
         {% block body %}
-        <p class="text-white "> {{ website }}</p>
+            <p class="text-white "> {{ website }}</p>
 
         {% endblock %}
 
+        {# templates/index.html.twig #}
+        <a href="{{ path('wild_show', { 'slug': "walking-dead" }) }}">
+            Testing show() method from WildController with a real program s slug.
+        </a>
+        <br>
+
+        <br>
+        <a href="{{ path('wild_index') }}">
+            Testing index() method from WildController to view all programs.
+        </a>
 
 
 
